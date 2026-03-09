@@ -1,0 +1,16 @@
+// Diagram for UnitPriceSpecification
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	UnitPriceSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">UnitPriceSpecification</TD></TR></TABLE>> URL="../UnitPriceSpecification" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	PriceSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PriceSpecification</TD></TR></TABLE>> URL="../PriceSpecification" margin=0]
+	UnitPriceSpecification -> PriceSpecification [arrowhead=onormal style=solid]
+}
