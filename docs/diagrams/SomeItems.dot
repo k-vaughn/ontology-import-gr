@@ -1,0 +1,18 @@
+// Diagram for SomeItems
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	SomeItems [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">SomeItems</TD></TR></TABLE>> URL="../SomeItems" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	ProductOrService [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ProductOrService</TD></TR></TABLE>> URL="../ProductOrService" margin=0]
+	SomeItems -> ProductOrService [arrowhead=onormal style=solid]
+	schema1_Product [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">schema1:Product</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/schema1/latest/Product" margin=0]
+	SomeItems -> schema1_Product [arrowhead=onormal style=solid]
+}

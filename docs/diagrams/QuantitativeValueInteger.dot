@@ -1,0 +1,16 @@
+// Diagram for QuantitativeValueInteger
+digraph {
+	graph [overlap=false rankdir=TB splines=true]
+	node [fontname=Arial fontsize=12 margin=0 shape=none]
+	edge [fontname=Arial fontsize=11]
+	QuantitativeValueInteger [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">QuantitativeValueInteger</TD></TR></TABLE>> URL="../QuantitativeValueInteger" margin=0]
+	{
+		rank=max
+	}
+	subgraph cluster_associated {
+		label="" style=invis
+		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+	}
+	QuantitativeValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">QuantitativeValue</TD></TR></TABLE>> URL="../QuantitativeValue" margin=0]
+	QuantitativeValueInteger -> QuantitativeValue [arrowhead=onormal style=solid]
+}
