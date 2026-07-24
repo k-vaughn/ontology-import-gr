@@ -2,41 +2,141 @@ site_name: The Good Relations Ontology
 site_description: The Good Relations ontology converted into a website
 repo_url: https://github.com/ISO-TC204/ontology-import-gr
 nav:
-- Home: index.md
-- Good Relations Pattern:
-  - Good Relations Pattern: GoodRelationsPattern.md
-  - Actual Product Or Service Instance: ActualProductOrServiceInstance.md
-  - Brand: Brand.md
-  - Business Entity: BusinessEntity.md
-  - Business Entity Type: BusinessEntityType.md
-  - Business Function: BusinessFunction.md
-  - Day Of Week: DayOfWeek.md
-  - Delivery Charge Specification: DeliveryChargeSpecification.md
-  - Delivery Method: DeliveryMethod.md
-  - Delivery Mode Parcel Service: DeliveryModeParcelService.md
-  - Individual: Individual.md
-  - License: License.md
-  - Location: Location.md
-  - Location Of Sales Or Service Provisioning: LocationOfSalesOrServiceProvisioning.md
-  - N-Ary-Relations: N-Ary-Relations.md
-  - Offering: Offering.md
-  - Opening Hours Specification: OpeningHoursSpecification.md
-  - Payment Charge Specification: PaymentChargeSpecification.md
-  - Payment Method: PaymentMethod.md
-  - Payment Method Credit Card: PaymentMethodCreditCard.md
-  - Price Specification: PriceSpecification.md
-  - Product Or Service: ProductOrService.md
-  - Product Or Service Model: ProductOrServiceModel.md
-  - Product Or Services Some Instances Placeholder: ProductOrServicesSomeInstancesPlaceholder.md
-  - Qualitative Value: QualitativeValue.md
-  - Quantitative Value: QuantitativeValue.md
-  - Quantitative Value Float: QuantitativeValueFloat.md
-  - Quantitative Value Integer: QuantitativeValueInteger.md
-  - Some Items: SomeItems.md
-  - Type And Quantity Node: TypeAndQuantityNode.md
-  - Unit Price Specification: UnitPriceSpecification.md
-  - Warranty Promise: WarrantyPromise.md
-  - Warranty Scope: WarrantyScope.md
+- TC204 on ISO.org: https://www.iso.org/committee/54706.html
+- TC 204 Home: https://isotc204.org/
+- RITSO Home: https://isotc204.org/ritso/
+- The Good Relations Ontology:
+  - Home: index.md
+  - Classes:
+    - Actual Product Or Service Instance: classes/ActualProductOrServiceInstance.md
+    - Brand: classes/Brand.md
+    - Business Entity: classes/BusinessEntity.md
+    - Business Entity Type: classes/BusinessEntityType.md
+    - Business Function: classes/BusinessFunction.md
+    - Day Of Week: classes/DayOfWeek.md
+    - Delivery Charge Specification: classes/DeliveryChargeSpecification.md
+    - Delivery Method: classes/DeliveryMethod.md
+    - Delivery Mode Parcel Service: classes/DeliveryModeParcelService.md
+    - Individual: classes/Individual.md
+    - License: classes/License.md
+    - Location: classes/Location.md
+    - Location Of Sales Or Service Provisioning: classes/LocationOfSalesOrServiceProvisioning.md
+    - N Ary Relations: classes/N-Ary-Relations.md
+    - Offering: classes/Offering.md
+    - Opening Hours Specification: classes/OpeningHoursSpecification.md
+    - Payment Charge Specification: classes/PaymentChargeSpecification.md
+    - Payment Method: classes/PaymentMethod.md
+    - Payment Method Credit Card: classes/PaymentMethodCreditCard.md
+    - Price Specification: classes/PriceSpecification.md
+    - Product Or Service: classes/ProductOrService.md
+    - Product Or Service Model: classes/ProductOrServiceModel.md
+    - Product Or Services Some Instances Placeholder: classes/ProductOrServicesSomeInstancesPlaceholder.md
+    - Qualitative Value: classes/QualitativeValue.md
+    - Quantitative Value: classes/QuantitativeValue.md
+    - Quantitative Value Float: classes/QuantitativeValueFloat.md
+    - Quantitative Value Integer: classes/QuantitativeValueInteger.md
+    - Some Items: classes/SomeItems.md
+    - Type And Quantity Node: classes/TypeAndQuantityNode.md
+    - Unit Price Specification: classes/UnitPriceSpecification.md
+    - Warranty Promise: classes/WarrantyPromise.md
+    - Warranty Scope: classes/WarrantyScope.md
+  - Properties:
+    - acceptedPaymentMethods: properties/acceptedPaymentMethods.md
+    - addOn: properties/addOn.md
+    - advanceBookingRequirement: properties/advanceBookingRequirement.md
+    - amountOfThisGood: properties/amountOfThisGood.md
+    - appliesToDeliveryMethod: properties/appliesToDeliveryMethod.md
+    - appliesToPaymentMethod: properties/appliesToPaymentMethod.md
+    - availabilityEnds: properties/availabilityEnds.md
+    - availabilityStarts: properties/availabilityStarts.md
+    - availableAtOrFrom: properties/availableAtOrFrom.md
+    - availableDeliveryMethods: properties/availableDeliveryMethods.md
+    - billingIncrement: properties/billingIncrement.md
+    - category: properties/category.md
+    - closes: properties/closes.md
+    - color: properties/color.md
+    - condition: properties/condition.md
+    - datatypeProductOrServiceProperty: properties/datatypeProductOrServiceProperty.md
+    - deliveryLeadTime: properties/deliveryLeadTime.md
+    - depth: properties/depth.md
+    - description: properties/description.md
+    - durationOfWarrantyInMonths: properties/durationOfWarrantyInMonths.md
+    - eligibleCustomerTypes: properties/eligibleCustomerTypes.md
+    - eligibleDuration: properties/eligibleDuration.md
+    - eligibleRegions: properties/eligibleRegions.md
+    - eligibleTransactionVolume: properties/eligibleTransactionVolume.md
+    - equal: properties/equal.md
+    - greater: properties/greater.md
+    - greaterOrEqual: properties/greaterOrEqual.md
+    - hasBrand: properties/hasBrand.md
+    - hasBusinessFunction: properties/hasBusinessFunction.md
+    - hasCurrency: properties/hasCurrency.md
+    - hasCurrencyValue: properties/hasCurrencyValue.md
+    - hasDUNS: properties/hasDUNS.md
+    - hasEAN_UCC-13: properties/hasEAN_UCC-13.md
+    - hasEligibleQuantity: properties/hasEligibleQuantity.md
+    - hasGlobalLocationNumber: properties/hasGlobalLocationNumber.md
+    - hasGTIN-14: properties/hasGTIN-14.md
+    - hasGTIN-8: properties/hasGTIN-8.md
+    - hasInventoryLevel: properties/hasInventoryLevel.md
+    - hasISICv4: properties/hasISICv4.md
+    - hasMakeAndModel: properties/hasMakeAndModel.md
+    - hasManufacturer: properties/hasManufacturer.md
+    - hasMaxCurrencyValue: properties/hasMaxCurrencyValue.md
+    - hasMaxValue: properties/hasMaxValue.md
+    - hasMaxValueFloat: properties/hasMaxValueFloat.md
+    - hasMaxValueInteger: properties/hasMaxValueInteger.md
+    - hasMinCurrencyValue: properties/hasMinCurrencyValue.md
+    - hasMinValue: properties/hasMinValue.md
+    - hasMinValueFloat: properties/hasMinValueFloat.md
+    - hasMinValueInteger: properties/hasMinValueInteger.md
+    - hasMPN: properties/hasMPN.md
+    - hasNAICS: properties/hasNAICS.md
+    - hasNext: properties/hasNext.md
+    - hasOpeningHoursDayOfWeek: properties/hasOpeningHoursDayOfWeek.md
+    - hasOpeningHoursSpecification: properties/hasOpeningHoursSpecification.md
+    - hasPOS: properties/hasPOS.md
+    - hasPrevious: properties/hasPrevious.md
+    - hasPriceSpecification: properties/hasPriceSpecification.md
+    - hasStockKeepingUnit: properties/hasStockKeepingUnit.md
+    - hasUnitOfMeasurement: properties/hasUnitOfMeasurement.md
+    - hasValue: properties/hasValue.md
+    - hasValueFloat: properties/hasValueFloat.md
+    - hasValueInteger: properties/hasValueInteger.md
+    - hasWarrantyPromise: properties/hasWarrantyPromise.md
+    - hasWarrantyScope: properties/hasWarrantyScope.md
+    - height: properties/height.md
+    - includes: properties/includes.md
+    - includesObject: properties/includesObject.md
+    - isAccessoryOrSparePartFor: properties/isAccessoryOrSparePartFor.md
+    - isConsumableFor: properties/isConsumableFor.md
+    - isListPrice: properties/isListPrice.md
+    - isSimilarTo: properties/isSimilarTo.md
+    - isVariantOf: properties/isVariantOf.md
+    - legalName: properties/legalName.md
+    - lesser: properties/lesser.md
+    - lesserOrEqual: properties/lesserOrEqual.md
+    - name: properties/name.md
+    - nonEqual: properties/nonEqual.md
+    - offers: properties/offers.md
+    - opens: properties/opens.md
+    - owns: properties/owns.md
+    - predecessorOf: properties/predecessorOf.md
+    - priceType: properties/priceType.md
+    - qualitativeProductOrServiceProperty: properties/qualitativeProductOrServiceProperty.md
+    - quantitativeProductOrServiceProperty: properties/quantitativeProductOrServiceProperty.md
+    - seeks: properties/seeks.md
+    - serialNumber: properties/serialNumber.md
+    - successorOf: properties/successorOf.md
+    - taxID: properties/taxID.md
+    - typeOfGood: properties/typeOfGood.md
+    - validFrom: properties/validFrom.md
+    - validThrough: properties/validThrough.md
+    - valueAddedTaxIncluded: properties/valueAddedTaxIncluded.md
+    - valueReference: properties/valueReference.md
+    - vatID: properties/vatID.md
+    - weight: properties/weight.md
+    - width: properties/width.md
 site_url: https://isotc204.org/ontology-import-gr/
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
@@ -52,6 +152,8 @@ theme:
   - content.tooltips
   - icons
   - navigation.path
+  - navigation.tabs
+  - navigation.tabs.sticky
   - navigation.top
   icon:
     repo: fontawesome/brands/github

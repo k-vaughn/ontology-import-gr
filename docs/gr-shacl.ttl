@@ -1,0 +1,1031 @@
+# SHACL shapes derived from rdfs:domain / rdfs:range in gr.ttl.
+# Informative companion for ont2md documentation — not a semantic change to GoodRelations.
+# Schema.org alignment classes that appear in domain unions are omitted as shape targets;
+# only GoodRelations classes receive NodeShapes.
+
+BASE <http://purl.org/goodrelations/v1/>
+
+PREFIX : <http://purl.org/goodrelations/v1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+:gr-shacl
+	a owl:Ontology ;
+	dcterms:title "GoodRelations Ontology - SHACL constraints" ;
+	skos:definition "SHACL node shapes that restate property domains and ranges from the GoodRelations ontology for documentation and validation tooling." ;
+	vann:preferredNamespaceUri "http://purl.org/goodrelations/v1/"^^xsd:anyURI ;
+	vann:preferredNamespacePrefix "gr"^^xsd:string ;
+	owl:imports <http://purl.org/goodrelations/v1/> ;
+	.
+
+# #################################################################
+# #
+# #    Brand
+# #
+# #################################################################
+
+:BrandShape
+	a sh:NodeShape ;
+	sh:targetClass :Brand ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    BusinessEntity
+# #
+# #################################################################
+
+:BusinessEntityShape
+	a sh:NodeShape ;
+	sh:targetClass :BusinessEntity ;
+	sh:property [
+		sh:path :category ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasBrand ;
+		sh:class :Brand ;
+	] ;
+	sh:property [
+		sh:path :hasDUNS ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasGlobalLocationNumber ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasISICv4 ;
+		sh:datatype xsd:int ;
+	] ;
+	sh:property [
+		sh:path :hasNAICS ;
+		sh:datatype xsd:int ;
+	] ;
+	sh:property [
+		sh:path :hasPOS ;
+		sh:class :Location ;
+	] ;
+	sh:property [
+		sh:path :legalName ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :offers ;
+		sh:class :Offering ;
+	] ;
+	sh:property [
+		sh:path :owns ;
+		sh:class :Individual ;
+	] ;
+	sh:property [
+		sh:path :seeks ;
+		sh:class :Offering ;
+	] ;
+	sh:property [
+		sh:path :taxID ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :vatID ;
+		sh:datatype xsd:string ;
+	] .
+
+# #################################################################
+# #
+# #    BusinessEntityType
+# #
+# #################################################################
+
+:BusinessEntityTypeShape
+	a sh:NodeShape ;
+	sh:targetClass :BusinessEntityType ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    BusinessFunction
+# #
+# #################################################################
+
+:BusinessFunctionShape
+	a sh:NodeShape ;
+	sh:targetClass :BusinessFunction ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    DayOfWeek
+# #
+# #################################################################
+
+:DayOfWeekShape
+	a sh:NodeShape ;
+	sh:targetClass :DayOfWeek ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasNext ;
+		sh:class :DayOfWeek ;
+	] ;
+	sh:property [
+		sh:path :hasPrevious ;
+		sh:class :DayOfWeek ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    DeliveryChargeSpecification
+# #
+# #################################################################
+
+:DeliveryChargeSpecificationShape
+	a sh:NodeShape ;
+	sh:targetClass :DeliveryChargeSpecification ;
+	sh:property [
+		sh:path :appliesToDeliveryMethod ;
+		sh:class :DeliveryMethod ;
+	] ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :eligibleRegions ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    DeliveryMethod
+# #
+# #################################################################
+
+:DeliveryMethodShape
+	a sh:NodeShape ;
+	sh:targetClass :DeliveryMethod ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    DeliveryModeParcelService
+# #
+# #################################################################
+
+:DeliveryModeParcelServiceShape
+	a sh:NodeShape ;
+	sh:targetClass :DeliveryModeParcelService ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    Individual
+# #
+# #################################################################
+
+:IndividualShape
+	a sh:NodeShape ;
+	sh:targetClass :Individual ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasMakeAndModel ;
+		sh:class :ProductOrServiceModel ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :serialNumber ;
+		sh:datatype xsd:string ;
+	] .
+
+# #################################################################
+# #
+# #    License
+# #
+# #################################################################
+
+:LicenseShape
+	a sh:NodeShape ;
+	sh:targetClass :License ;
+	sh:property [
+		sh:path :eligibleDuration ;
+		sh:class :QuantitativeValue ;
+	] ;
+	sh:property [
+		sh:path :eligibleRegions ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :validFrom ;
+		sh:datatype xsd:dateTime ;
+	] ;
+	sh:property [
+		sh:path :validThrough ;
+		sh:datatype xsd:dateTime ;
+	] .
+
+# #################################################################
+# #
+# #    Location
+# #
+# #################################################################
+
+:LocationShape
+	a sh:NodeShape ;
+	sh:targetClass :Location ;
+	sh:property [
+		sh:path :category ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasGlobalLocationNumber ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasISICv4 ;
+		sh:datatype xsd:int ;
+	] ;
+	sh:property [
+		sh:path :hasOpeningHoursSpecification ;
+		sh:class :OpeningHoursSpecification ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    Offering
+# #
+# #################################################################
+
+:OfferingShape
+	a sh:NodeShape ;
+	sh:targetClass :Offering ;
+	sh:property [
+		sh:path :acceptedPaymentMethods ;
+		sh:class :PaymentMethod ;
+	] ;
+	sh:property [
+		sh:path :addOn ;
+		sh:class :Offering ;
+	] ;
+	sh:property [
+		sh:path :advanceBookingRequirement ;
+		sh:class :QuantitativeValueInteger ;
+	] ;
+	sh:property [
+		sh:path :availabilityEnds ;
+		sh:datatype xsd:dateTime ;
+	] ;
+	sh:property [
+		sh:path :availabilityStarts ;
+		sh:datatype xsd:dateTime ;
+	] ;
+	sh:property [
+		sh:path :availableAtOrFrom ;
+		sh:class :Location ;
+	] ;
+	sh:property [
+		sh:path :availableDeliveryMethods ;
+		sh:class :DeliveryMethod ;
+	] ;
+	sh:property [
+		sh:path :category ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :condition ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :deliveryLeadTime ;
+		sh:class :QuantitativeValueInteger ;
+	] ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :eligibleCustomerTypes ;
+		sh:class :BusinessEntityType ;
+	] ;
+	sh:property [
+		sh:path :eligibleDuration ;
+		sh:class :QuantitativeValue ;
+	] ;
+	sh:property [
+		sh:path :eligibleRegions ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :eligibleTransactionVolume ;
+		sh:class :PriceSpecification ;
+	] ;
+	sh:property [
+		sh:path :hasBusinessFunction ;
+		sh:class :BusinessFunction ;
+	] ;
+	sh:property [
+		sh:path :hasEAN_UCC-13 ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasEligibleQuantity ;
+		sh:class :QuantitativeValue ;
+	] ;
+	sh:property [
+		sh:path :hasGTIN-14 ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasGTIN-8 ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasInventoryLevel ;
+		sh:class :QuantitativeValueFloat ;
+	] ;
+	sh:property [
+		sh:path :hasMPN ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasPriceSpecification ;
+		sh:class :PriceSpecification ;
+	] ;
+	sh:property [
+		sh:path :hasStockKeepingUnit ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasWarrantyPromise ;
+		sh:class :WarrantyPromise ;
+	] ;
+	sh:property [
+		sh:path :includes ;
+		sh:class :ProductOrService ;
+	] ;
+	sh:property [
+		sh:path :includesObject ;
+		sh:class :TypeAndQuantityNode ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :serialNumber ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :validFrom ;
+		sh:datatype xsd:dateTime ;
+	] ;
+	sh:property [
+		sh:path :validThrough ;
+		sh:datatype xsd:dateTime ;
+	] .
+
+# #################################################################
+# #
+# #    OpeningHoursSpecification
+# #
+# #################################################################
+
+:OpeningHoursSpecificationShape
+	a sh:NodeShape ;
+	sh:targetClass :OpeningHoursSpecification ;
+	sh:property [
+		sh:path :closes ;
+		sh:datatype xsd:time ;
+	] ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasOpeningHoursDayOfWeek ;
+		sh:class :DayOfWeek ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :opens ;
+		sh:datatype xsd:time ;
+	] ;
+	sh:property [
+		sh:path :validFrom ;
+		sh:datatype xsd:dateTime ;
+	] ;
+	sh:property [
+		sh:path :validThrough ;
+		sh:datatype xsd:dateTime ;
+	] .
+
+# #################################################################
+# #
+# #    PaymentChargeSpecification
+# #
+# #################################################################
+
+:PaymentChargeSpecificationShape
+	a sh:NodeShape ;
+	sh:targetClass :PaymentChargeSpecification ;
+	sh:property [
+		sh:path :appliesToPaymentMethod ;
+		sh:class :PaymentMethod ;
+	] ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    PaymentMethod
+# #
+# #################################################################
+
+:PaymentMethodShape
+	a sh:NodeShape ;
+	sh:targetClass :PaymentMethod ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    PaymentMethodCreditCard
+# #
+# #################################################################
+
+:PaymentMethodCreditCardShape
+	a sh:NodeShape ;
+	sh:targetClass :PaymentMethodCreditCard ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    PriceSpecification
+# #
+# #################################################################
+
+:PriceSpecificationShape
+	a sh:NodeShape ;
+	sh:targetClass :PriceSpecification ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :eligibleTransactionVolume ;
+		sh:class :PriceSpecification ;
+	] ;
+	sh:property [
+		sh:path :hasCurrency ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasCurrencyValue ;
+		sh:datatype xsd:float ;
+	] ;
+	sh:property [
+		sh:path :hasEligibleQuantity ;
+		sh:class :QuantitativeValue ;
+	] ;
+	sh:property [
+		sh:path :hasMaxCurrencyValue ;
+		sh:datatype xsd:float ;
+	] ;
+	sh:property [
+		sh:path :hasMinCurrencyValue ;
+		sh:datatype xsd:float ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :validFrom ;
+		sh:datatype xsd:dateTime ;
+	] ;
+	sh:property [
+		sh:path :validThrough ;
+		sh:datatype xsd:dateTime ;
+	] ;
+	sh:property [
+		sh:path :valueAddedTaxIncluded ;
+		sh:datatype xsd:boolean ;
+	] .
+
+# #################################################################
+# #
+# #    ProductOrService
+# #
+# #################################################################
+
+:ProductOrServiceShape
+	a sh:NodeShape ;
+	sh:targetClass :ProductOrService ;
+	sh:property [
+		sh:path :category ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :color ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :condition ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :datatypeProductOrServiceProperty ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :depth ;
+		sh:class :QuantitativeValue ;
+	] ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasBrand ;
+		sh:class :Brand ;
+	] ;
+	sh:property [
+		sh:path :hasEAN_UCC-13 ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasGTIN-14 ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasGTIN-8 ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasManufacturer ;
+		sh:class :BusinessEntity ;
+	] ;
+	sh:property [
+		sh:path :hasMPN ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasStockKeepingUnit ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :height ;
+		sh:class :QuantitativeValue ;
+	] ;
+	sh:property [
+		sh:path :isAccessoryOrSparePartFor ;
+		sh:class :ProductOrService ;
+	] ;
+	sh:property [
+		sh:path :isConsumableFor ;
+		sh:class :ProductOrService ;
+	] ;
+	sh:property [
+		sh:path :isSimilarTo ;
+		sh:class :ProductOrService ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :qualitativeProductOrServiceProperty ;
+		sh:class :QualitativeValue ;
+	] ;
+	sh:property [
+		sh:path :quantitativeProductOrServiceProperty ;
+		sh:class :QuantitativeValue ;
+	] ;
+	sh:property [
+		sh:path :weight ;
+		sh:class :QuantitativeValue ;
+	] ;
+	sh:property [
+		sh:path :width ;
+		sh:class :QuantitativeValue ;
+	] .
+
+# #################################################################
+# #
+# #    ProductOrServiceModel
+# #
+# #################################################################
+
+:ProductOrServiceModelShape
+	a sh:NodeShape ;
+	sh:targetClass :ProductOrServiceModel ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :isVariantOf ;
+		sh:class :ProductOrServiceModel ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :predecessorOf ;
+		sh:class :ProductOrServiceModel ;
+	] ;
+	sh:property [
+		sh:path :successorOf ;
+		sh:class :ProductOrServiceModel ;
+	] .
+
+# #################################################################
+# #
+# #    QualitativeValue
+# #
+# #################################################################
+
+:QualitativeValueShape
+	a sh:NodeShape ;
+	sh:targetClass :QualitativeValue ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :equal ;
+		sh:class :QualitativeValue ;
+	] ;
+	sh:property [
+		sh:path :greater ;
+		sh:class :QualitativeValue ;
+	] ;
+	sh:property [
+		sh:path :greaterOrEqual ;
+		sh:class :QualitativeValue ;
+	] ;
+	sh:property [
+		sh:path :lesser ;
+		sh:class :QualitativeValue ;
+	] ;
+	sh:property [
+		sh:path :lesserOrEqual ;
+		sh:class :QualitativeValue ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :nonEqual ;
+		sh:class :QualitativeValue ;
+	] ;
+	sh:property [
+		sh:path :valueReference ;
+		sh:class :QualitativeValue ;
+	] ;
+	sh:property [
+		sh:path :valueReference ;
+		sh:class :QuantitativeValue ;
+	] .
+
+# #################################################################
+# #
+# #    QuantitativeValue
+# #
+# #################################################################
+
+:QuantitativeValueShape
+	a sh:NodeShape ;
+	sh:targetClass :QuantitativeValue ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasMaxValue ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasMinValue ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasUnitOfMeasurement ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :hasValue ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :valueReference ;
+		sh:class :QualitativeValue ;
+	] ;
+	sh:property [
+		sh:path :valueReference ;
+		sh:class :QuantitativeValue ;
+	] .
+
+# #################################################################
+# #
+# #    QuantitativeValueFloat
+# #
+# #################################################################
+
+:QuantitativeValueFloatShape
+	a sh:NodeShape ;
+	sh:targetClass :QuantitativeValueFloat ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasMaxValueFloat ;
+		sh:datatype xsd:float ;
+	] ;
+	sh:property [
+		sh:path :hasMinValueFloat ;
+		sh:datatype xsd:float ;
+	] ;
+	sh:property [
+		sh:path :hasValueFloat ;
+		sh:datatype xsd:float ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    QuantitativeValueInteger
+# #
+# #################################################################
+
+:QuantitativeValueIntegerShape
+	a sh:NodeShape ;
+	sh:targetClass :QuantitativeValueInteger ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasMaxValueInteger ;
+		sh:datatype xsd:int ;
+	] ;
+	sh:property [
+		sh:path :hasMinValueInteger ;
+		sh:datatype xsd:int ;
+	] ;
+	sh:property [
+		sh:path :hasValueInteger ;
+		sh:datatype xsd:int ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    SomeItems
+# #
+# #################################################################
+
+:SomeItemsShape
+	a sh:NodeShape ;
+	sh:targetClass :SomeItems ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasInventoryLevel ;
+		sh:class :QuantitativeValueFloat ;
+	] ;
+	sh:property [
+		sh:path :hasMakeAndModel ;
+		sh:class :ProductOrServiceModel ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    TypeAndQuantityNode
+# #
+# #################################################################
+
+:TypeAndQuantityNodeShape
+	a sh:NodeShape ;
+	sh:targetClass :TypeAndQuantityNode ;
+	sh:property [
+		sh:path :amountOfThisGood ;
+		sh:datatype xsd:float ;
+	] ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasBusinessFunction ;
+		sh:class :BusinessFunction ;
+	] ;
+	sh:property [
+		sh:path :hasUnitOfMeasurement ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :typeOfGood ;
+		sh:class :Individual ;
+	] ;
+	sh:property [
+		sh:path :typeOfGood ;
+		sh:class :SomeItems ;
+	] .
+
+# #################################################################
+# #
+# #    UnitPriceSpecification
+# #
+# #################################################################
+
+:UnitPriceSpecificationShape
+	a sh:NodeShape ;
+	sh:targetClass :UnitPriceSpecification ;
+	sh:property [
+		sh:path :billingIncrement ;
+		sh:datatype xsd:float ;
+	] ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :hasUnitOfMeasurement ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+		sh:path :isListPrice ;
+		sh:datatype xsd:boolean ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :priceType ;
+		sh:datatype xsd:string ;
+	] .
+
+# #################################################################
+# #
+# #    WarrantyPromise
+# #
+# #################################################################
+
+:WarrantyPromiseShape
+	a sh:NodeShape ;
+	sh:targetClass :WarrantyPromise ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :durationOfWarrantyInMonths ;
+		sh:datatype xsd:int ;
+	] ;
+	sh:property [
+		sh:path :hasWarrantyScope ;
+		sh:class :WarrantyScope ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+
+# #################################################################
+# #
+# #    WarrantyScope
+# #
+# #################################################################
+
+:WarrantyScopeShape
+	a sh:NodeShape ;
+	sh:targetClass :WarrantyScope ;
+	sh:property [
+		sh:path :description ;
+		sh:datatype rdfs:Literal ;
+	] ;
+	sh:property [
+		sh:path :name ;
+		sh:datatype rdfs:Literal ;
+	] .
+

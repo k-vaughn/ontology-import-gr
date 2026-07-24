@@ -3,14 +3,22 @@ digraph {
 	graph [overlap=false rankdir=TB splines=true]
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
-	License [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">License</TD></TR></TABLE>> URL="../License" margin=0]
+	{
+		rank=source
+		BusinessFunction [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BusinessFunction</TD></TR></TABLE>> URL="../BusinessFunction" margin=0]
+	}
+	License [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">License</TD></TR><TR><TD ALIGN="LEFT">eligibleRegions : xsd:string</TD></TR><TR><TD ALIGN="LEFT">validFrom : xsd:dateTime</TD></TR><TR><TD ALIGN="LEFT">validThrough : xsd:dateTime</TD></TR></TABLE>> URL="../License" margin=0]
 	{
 		rank=max
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		QuantitativeValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">QuantitativeValue</TD></TR></TABLE>> URL="../QuantitativeValue" margin=0]
 	}
-	BusinessFunction [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BusinessFunction</TD></TR></TABLE>> URL="../BusinessFunction" margin=0]
 	License -> BusinessFunction [arrowhead=onormal style=solid]
+	License -> Invis [style=invis]
+	Invis -> QuantitativeValue [style=invis]
+	QuantitativeValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">QuantitativeValue</TD></TR></TABLE>> URL="../QuantitativeValue" margin=0]
+	License -> QuantitativeValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">eligibleDuration</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

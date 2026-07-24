@@ -3,3 +3,5 @@ site/
 venv/
 ~/
 docs/catalog-v001.xml
+.cursor/
+.vscode/
