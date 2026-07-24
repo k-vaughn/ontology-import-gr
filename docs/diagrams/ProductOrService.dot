@@ -3,12 +3,40 @@ digraph {
 	graph [overlap=false rankdir=TB splines=true]
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
-	ProductOrService [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ProductOrService</TD></TR></TABLE>> URL="../ProductOrService" margin=0]
+	{
+		rank=source
+	}
+	ProductOrService [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ProductOrService</TD></TR><TR><TD ALIGN="LEFT">category : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">color : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">condition : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">datatypeProductOrServiceProperty : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">description : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">hasEAN_UCC-13 : xsd:string</TD></TR><TR><TD ALIGN="LEFT">hasGTIN-14 : xsd:string</TD></TR><TR><TD ALIGN="LEFT">hasGTIN-8 : xsd:string</TD></TR><TR><TD ALIGN="LEFT">hasMPN : xsd:string</TD></TR><TR><TD ALIGN="LEFT">hasStockKeepingUnit : xsd:string</TD></TR><TR><TD ALIGN="LEFT">name : rdfs:Literal</TD></TR></TABLE>> URL="../ProductOrService" margin=0]
 	{
 		rank=max
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		Brand [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Brand</TD></TR></TABLE>> URL="../Brand" margin=0]
+		BusinessEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BusinessEntity</TD></TR></TABLE>> URL="../BusinessEntity" margin=0]
+		QualitativeValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">QualitativeValue</TD></TR></TABLE>> URL="../QualitativeValue" margin=0]
+		QuantitativeValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">QuantitativeValue</TD></TR></TABLE>> URL="../QuantitativeValue" margin=0]
 	}
+	ProductOrService -> Invis [style=invis]
+	Invis -> Brand [style=invis]
+	Brand -> BusinessEntity [style=invis]
+	BusinessEntity -> QualitativeValue [style=invis]
+	QualitativeValue -> QuantitativeValue [style=invis]
+	QuantitativeValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">QuantitativeValue</TD></TR></TABLE>> URL="../QuantitativeValue" margin=0]
+	ProductOrService -> QuantitativeValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">depth</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Brand [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Brand</TD></TR></TABLE>> URL="../Brand" margin=0]
+	ProductOrService -> Brand [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasBrand</TD></TR></TABLE>> arrowhead=normal style=solid]
+	BusinessEntity [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BusinessEntity</TD></TR></TABLE>> URL="../BusinessEntity" margin=0]
+	ProductOrService -> BusinessEntity [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasManufacturer</TD></TR></TABLE>> arrowhead=normal style=solid]
+	ProductOrService -> QuantitativeValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">height</TD></TR></TABLE>> arrowhead=normal style=solid]
+	ProductOrService [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ProductOrService</TD></TR></TABLE>> URL="../ProductOrService" margin=0]
+	ProductOrService -> ProductOrService [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">isAccessoryOrSparePartFor</TD></TR></TABLE>> arrowhead=normal style=solid]
+	ProductOrService -> ProductOrService [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">isConsumableFor</TD></TR></TABLE>> arrowhead=normal style=solid]
+	ProductOrService -> ProductOrService [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">isSimilarTo</TD></TR></TABLE>> arrowhead=normal style=solid]
+	QualitativeValue [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">QualitativeValue</TD></TR></TABLE>> URL="../QualitativeValue" margin=0]
+	ProductOrService -> QualitativeValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">qualitativeProductOrServiceProperty</TD></TR></TABLE>> arrowhead=normal style=solid]
+	ProductOrService -> QuantitativeValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">quantitativeProductOrServiceProperty</TD></TR></TABLE>> arrowhead=normal style=solid]
+	ProductOrService -> QuantitativeValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">weight</TD></TR></TABLE>> arrowhead=normal style=solid]
+	ProductOrService -> QuantitativeValue [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">width</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

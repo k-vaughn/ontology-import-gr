@@ -3,16 +3,24 @@ digraph {
 	graph [overlap=false rankdir=TB splines=true]
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
-	Individual [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Individual</TD></TR></TABLE>> URL="../Individual" margin=0]
+	{
+		rank=source
+		ProductOrService [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ProductOrService</TD></TR></TABLE>> URL="../ProductOrService" margin=0]
+		schema1_Product [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">schema1:Product</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/schema1/latest/Product" margin=0]
+	}
+	Individual [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Individual</TD></TR><TR><TD ALIGN="LEFT">description : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">name : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">serialNumber : xsd:string</TD></TR></TABLE>> URL="../Individual" margin=0]
 	{
 		rank=max
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		ProductOrServiceModel [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ProductOrServiceModel</TD></TR></TABLE>> URL="../ProductOrServiceModel" margin=0]
 	}
-	ProductOrService [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ProductOrService</TD></TR></TABLE>> URL="../ProductOrService" margin=0]
 	Individual -> ProductOrService [arrowhead=onormal style=solid]
-	schema1_Product [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">schema1:Product</TD></TR></TABLE>> URL="https://w3id.org/citydata/imported/schema1/latest/Product" margin=0]
 	Individual -> schema1_Product [arrowhead=onormal style=solid]
+	Individual -> Invis [style=invis]
+	Invis -> ProductOrServiceModel [style=invis]
+	ProductOrServiceModel [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">ProductOrServiceModel</TD></TR></TABLE>> URL="../ProductOrServiceModel" margin=0]
+	Individual -> ProductOrServiceModel [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasMakeAndModel</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

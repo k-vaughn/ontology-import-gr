@@ -3,14 +3,22 @@ digraph {
 	graph [overlap=false rankdir=TB splines=true]
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
-	PaymentChargeSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PaymentChargeSpecification</TD></TR></TABLE>> URL="../PaymentChargeSpecification" margin=0]
+	{
+		rank=source
+		PriceSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PriceSpecification</TD></TR></TABLE>> URL="../PriceSpecification" margin=0]
+	}
+	PaymentChargeSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PaymentChargeSpecification</TD></TR><TR><TD ALIGN="LEFT">description : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">name : rdfs:Literal</TD></TR></TABLE>> URL="../PaymentChargeSpecification" margin=0]
 	{
 		rank=max
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		PaymentMethod [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PaymentMethod</TD></TR></TABLE>> URL="../PaymentMethod" margin=0]
 	}
-	PriceSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PriceSpecification</TD></TR></TABLE>> URL="../PriceSpecification" margin=0]
 	PaymentChargeSpecification -> PriceSpecification [arrowhead=onormal style=solid]
+	PaymentChargeSpecification -> Invis [style=invis]
+	Invis -> PaymentMethod [style=invis]
+	PaymentMethod [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PaymentMethod</TD></TR></TABLE>> URL="../PaymentMethod" margin=0]
+	PaymentChargeSpecification -> PaymentMethod [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">appliesToPaymentMethod</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

@@ -3,7 +3,10 @@ digraph {
 	graph [overlap=false rankdir=TB splines=true]
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
-	DayOfWeek [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DayOfWeek</TD></TR></TABLE>> URL="../DayOfWeek" margin=0]
+	{
+		rank=source
+	}
+	DayOfWeek [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DayOfWeek</TD></TR><TR><TD ALIGN="LEFT">description : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">name : rdfs:Literal</TD></TR></TABLE>> URL="../DayOfWeek" margin=0]
 	{
 		rank=max
 	}
@@ -11,4 +14,7 @@ digraph {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
 	}
+	DayOfWeek [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DayOfWeek</TD></TR></TABLE>> URL="../DayOfWeek" margin=0]
+	DayOfWeek -> DayOfWeek [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasNext</TD></TR></TABLE>> arrowhead=normal style=solid]
+	DayOfWeek -> DayOfWeek [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasPrevious</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

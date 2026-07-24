@@ -3,12 +3,20 @@ digraph {
 	graph [overlap=false rankdir=TB splines=true]
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
-	Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Location</TD></TR></TABLE>> URL="../Location" margin=0]
+	{
+		rank=source
+	}
+	Location [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Location</TD></TR><TR><TD ALIGN="LEFT">category : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">description : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">hasGlobalLocationNumber : xsd:string</TD></TR><TR><TD ALIGN="LEFT">hasISICv4 : xsd:int</TD></TR><TR><TD ALIGN="LEFT">name : rdfs:Literal</TD></TR></TABLE>> URL="../Location" margin=0]
 	{
 		rank=max
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		OpeningHoursSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">OpeningHoursSpecification</TD></TR></TABLE>> URL="../OpeningHoursSpecification" margin=0]
 	}
+	Location -> Invis [style=invis]
+	Invis -> OpeningHoursSpecification [style=invis]
+	OpeningHoursSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">OpeningHoursSpecification</TD></TR></TABLE>> URL="../OpeningHoursSpecification" margin=0]
+	Location -> OpeningHoursSpecification [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasOpeningHoursSpecification</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

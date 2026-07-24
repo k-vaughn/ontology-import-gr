@@ -3,12 +3,24 @@ digraph {
 	graph [overlap=false rankdir=TB splines=true]
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
-	TypeAndQuantityNode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">TypeAndQuantityNode</TD></TR></TABLE>> URL="../TypeAndQuantityNode" margin=0]
+	{
+		rank=source
+	}
+	TypeAndQuantityNode [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">TypeAndQuantityNode</TD></TR><TR><TD ALIGN="LEFT">amountOfThisGood : xsd:float</TD></TR><TR><TD ALIGN="LEFT">description : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">hasUnitOfMeasurement : xsd:string</TD></TR><TR><TD ALIGN="LEFT">name : rdfs:Literal</TD></TR></TABLE>> URL="../TypeAndQuantityNode" margin=0]
 	{
 		rank=max
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		BusinessFunction [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BusinessFunction</TD></TR></TABLE>> URL="../BusinessFunction" margin=0]
+		Individual [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Individual</TD></TR></TABLE>> URL="../Individual" margin=0]
 	}
+	TypeAndQuantityNode -> Invis [style=invis]
+	Invis -> BusinessFunction [style=invis]
+	BusinessFunction -> Individual [style=invis]
+	BusinessFunction [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">BusinessFunction</TD></TR></TABLE>> URL="../BusinessFunction" margin=0]
+	TypeAndQuantityNode -> BusinessFunction [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">hasBusinessFunction</TD></TR></TABLE>> arrowhead=normal style=solid]
+	Individual [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">Individual</TD></TR></TABLE>> URL="../Individual" margin=0]
+	TypeAndQuantityNode -> Individual [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">typeOfGood</TD></TR></TABLE>> arrowhead=normal style=solid]
 }

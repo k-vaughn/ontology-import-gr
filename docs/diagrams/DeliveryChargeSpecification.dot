@@ -3,14 +3,22 @@ digraph {
 	graph [overlap=false rankdir=TB splines=true]
 	node [fontname=Arial fontsize=12 margin=0 shape=none]
 	edge [fontname=Arial fontsize=11]
-	DeliveryChargeSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DeliveryChargeSpecification</TD></TR></TABLE>> URL="../DeliveryChargeSpecification" margin=0]
+	{
+		rank=source
+		PriceSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PriceSpecification</TD></TR></TABLE>> URL="../PriceSpecification" margin=0]
+	}
+	DeliveryChargeSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DeliveryChargeSpecification</TD></TR><TR><TD ALIGN="LEFT">description : rdfs:Literal</TD></TR><TR><TD ALIGN="LEFT">eligibleRegions : xsd:string</TD></TR><TR><TD ALIGN="LEFT">name : rdfs:Literal</TD></TR></TABLE>> URL="../DeliveryChargeSpecification" margin=0]
 	{
 		rank=max
 	}
 	subgraph cluster_associated {
 		label="" style=invis
 		Invis [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD></TD></TR></TABLE>> margin=0 style=invis]
+		DeliveryMethod [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DeliveryMethod</TD></TR></TABLE>> URL="../DeliveryMethod" margin=0]
 	}
-	PriceSpecification [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">PriceSpecification</TD></TR></TABLE>> URL="../PriceSpecification" margin=0]
 	DeliveryChargeSpecification -> PriceSpecification [arrowhead=onormal style=solid]
+	DeliveryChargeSpecification -> Invis [style=invis]
+	Invis -> DeliveryMethod [style=invis]
+	DeliveryMethod [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD BGCOLOR="lightgray" ALIGN="CENTER">DeliveryMethod</TD></TR></TABLE>> URL="../DeliveryMethod" margin=0]
+	DeliveryChargeSpecification -> DeliveryMethod [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD ALIGN="CENTER">appliesToDeliveryMethod</TD></TR></TABLE>> arrowhead=normal style=solid]
 }
